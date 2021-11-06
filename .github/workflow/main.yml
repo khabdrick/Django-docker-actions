@@ -1,0 +1,11 @@
+
+name: test_project  
+on: [pull_request, push]  # Trigger the workflow on push or pull request
+jobs:  
+test_project:  
+   runs-on: ubuntu-latest  
+   steps:  
+     - uses: actions/checkout@v2  
+     - uses: actions/setup-python@v2  
+     - run: pip install -r requirements.txt  # install requirements to enable GitHub run our code
+     - run: pytest . # run the unit test  
